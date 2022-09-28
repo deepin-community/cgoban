@@ -1,0 +1,10 @@
+diff --git a/grab_cgoban.in b/grab_cgoban.in
+index e7937d0..26d01ae 100755
+--- a/grab_cgoban.in
++++ b/grab_cgoban.in
+@@ -1,4 +1,4 @@
+-#! @SHELL@
++#!/bin/sh
+ #
+ # grab_cgoban    save.gif
+ #

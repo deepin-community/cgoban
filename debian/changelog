@@ -1,0 +1,319 @@
+cgoban (1.9.14-19) unstable; urgency=low
+
+  * Fixed FTCBFS: ./configure thinks it cannot cross, closes: #943719.
+    Thanks to Helmut Grohne.
+  * Updated standards version, fixed minor Lintian complaints.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sun, 26 Jul 2020 16:01:53 +0200
+
+cgoban (1.9.14-18) unstable; urgency=low
+
+  * Made build reproducible, closes: #827684, thanks to Chris Lamb.
+  * Added new icon, thanks to Markus Koschany.
+  * Updated standards version:
+    + updated build system,
+    + removed menu system integration, closes: #737846,
+    + removed update-mime.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sat, 27 Aug 2016 11:43:33 +0200
+
+cgoban (1.9.14-17) unstable; urgency=low
+
+  * Fixed crash on maximization, closes: #387209.
+    Thanks to Bill Allombert.
+  * Updated build targets in debian/rules.
+  * Recommending gnugo instead of suggesting it.
+  * Renamed legacy changes patch to avoid Lintian warning.
+  * Updated standards version.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sun, 06 May 2012 20:31:50 +0200
+
+cgoban (1.9.14-16) unstable; urgency=low
+
+  * Fixed (build-)dependencies.
+  * Updated package to source format 3.0 (quilt).
+  * Updated standards version.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sat, 11 Sep 2010 23:37:55 +0200
+
+cgoban (1.9.14-15) unstable; urgency=low
+
+  * Registered as SGF editor, closes: #490579.
+  * Updated standards version.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sat, 19 Jul 2008 07:03:51 +0200
+
+cgoban (1.9.14-14) unstable; urgency=low
+
+  * Updated desktop file, closes: #455991.
+
+ -- Martin A. Godisch <godisch@debian.org>  Thu, 13 Dec 2007 18:59:35 +0100
+
+cgoban (1.9.14-13) unstable; urgency=low
+
+  * Added desktop file and icon, closes: #455798.
+  * Updated standards version.
+
+ -- Martin A. Godisch <godisch@debian.org>  Wed, 12 Dec 2007 18:11:45 +0100
+
+cgoban (1.9.14-12) unstable; urgency=low
+
+  * Removed debug switch from make.
+  * Fixed timestamps.
+  * Fixed watch file.
+  * Fixed clean target.
+  * Updated standards version.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sun, 09 Dec 2007 10:29:59 +0100
+
+cgoban (1.9.14-11) unstable; urgency=low
+
+  * Applied workaround for autotools timestamp issue, see bug #362880.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sun, 16 Apr 2006 08:54:05 +0200
+
+cgoban (1.9.14-10) unstable; urgency=low
+
+  * Added debug switch to make in order to investigate timestamp problem
+    when auto-building on ia64 and sparc, which is not reproducible with
+    a manual build.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sun, 16 Apr 2006 07:31:25 +0200
+
+cgoban (1.9.14-9) unstable; urgency=low
+
+  * Acknowledging NMU, closes: #342251, #356150.
+  * Fixed (?) autotools timestamp issue, closes: #362132.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sat, 15 Apr 2006 22:13:35 +0200
+
+cgoban (1.9.14-8.1) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * Fix the fixed patching of auto files in debian/rules (Closes: #342251).
+
+ -- Luk Claes <luk@debian.org>  Thu,  9 Mar 2006 20:10:07 +0100
+
+cgoban (1.9.14-8) unstable; urgency=low
+
+  * Fixed patching of auto files in debian/rules, closes: #341966.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sun, 04 Dec 2005 16:06:10 +0100
+
+cgoban (1.9.14-7) unstable; urgency=low
+
+  * Updated build-dependencies according to xlibs-dev transition.
+  * Updated standards version, fixed debian/rules, debian/copyright.
+  * Added watch file.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sat, 03 Dec 2005 15:03:30 +0100
+
+cgoban (1.9.14-6) unstable; urgency=low
+
+  * Enhanced "Basicwin" label, fixed grab_cgoban script, closes: #257229.
+  * Fixed POSIX compliance of debian/rules.
+  * Fixed quotation in menu file.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sat, 10 Jul 2004 09:43:45 +0200
+
+cgoban (1.9.14-5) unstable; urgency=low
+
+  * Fixed disappearing windows, closes: #113342. Thanks to Chris Gray.
+  * Fixed dashes in manual page.
+  * Added DEBIAN/md5sums.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sun, 22 Feb 2004 06:35:06 +0100
+
+cgoban (1.9.14-4) unstable; urgency=low
+
+  * Improved timer: cgoban will (approximately) ignore time gaps >= 30 sec,
+    in order to disregard laptop suspend times, closes: #179280.
+  * Updated package description.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sun, 09 Nov 2003 10:37:18 +0100
+
+cgoban (1.9.14-3) unstable; urgency=low
+
+  * Changed default path of gnugo, thanks to Reinhard Tartler.
+  * Updated defaults for serial devices.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sat, 30 Aug 2003 17:56:35 +0200
+
+cgoban (1.9.14-2) unstable; urgency=low
+
+  * Removed bugfix for #204313, because of segfault reports.
+    #204313 occurs is woody only, probably an xfree bug.
+  * Fixed compiler warning.
+
+ -- Martin A. Godisch <godisch@debian.org>  Sat, 30 Aug 2003 16:00:22 +0200
+
+cgoban (1.9.14-1) unstable; urgency=low
+
+  * New maintainer.
+  * New upstream release, closes: #195211.
+  * Fixed font name, closes: #204313.
+  * Updated package description and standards version.
+
+ -- Martin A. Godisch <godisch@debian.org>  Mon, 25 Aug 2003 18:58:40 +0200
+
+cgoban (1.9.12-3) unstable; urgency=low
+
+  * New maintainer: Christian Lavoie.
+  * Sponsored upload with new upstream release is being prepared.
+
+ -- Martin A. Godisch <godisch@debian.org>  Tue, 05 Aug 2003 05:50:40 +0000
+
+cgoban (1.9.12-2) unstable; urgency=low
+
+  * Standards-Version: 3.5.8
+  * Noticed that grab_cgoban.6 is part of the upstream source now, so
+    install it from there.
+  * Removed /usr/doc/cgoban link handling.
+  * debian/rules: Building with debug support is the default again.
+  * gzip /usr/share/doc/cgoban/README.
+
+ -- Richard Braakman <dark@xs4all.nl>  Thu, 12 Dec 2002 04:38:22 +0200
+
+cgoban (1.9.12-1) unstable; urgency=low
+
+  * New upstream source.  It fixes a problem with detecting the end of
+    the game when playing on IGS.
+
+ -- Richard Braakman <dark@xs4all.nl>  Thu,  8 Aug 2002 19:03:07 +0300
+
+cgoban (1.9.11-3) unstable; urgency=low
+
+  * Added menu hint "Go" at the suggestion of Yann Dirson, so that Go
+    programs will be grouped together if there are many games.
+    (closes: #121025)
+
+ -- Richard Braakman <dark@xs4all.nl>  Sat,  2 Feb 2002 00:11:33 +0200
+
+cgoban (1.9.11-2) unstable; urgency=medium
+
+  * Adjusted Build-Dependencies to reflect new xlibs organization.
+  * Recompiled to give it a dependency on xlibs instead of the obsolete
+    xlib6g.
+
+ -- Richard Braakman <dark@xs4all.nl>  Wed, 12 Sep 2001 22:40:45 +0300
+
+cgoban (1.9.11-1) unstable; urgency=medium
+
+  * New upstream source.  Major changes:
+    - The user is alerted if saving a game fails
+      Closes: bug#46194, reported by Jonathan H N Chin.
+    - The games-list window shows which games you're observing.
+    Packaging the new version closes: bug#78053, reported by Kevin Turner.
+  * Moved documentation and manpages to /usr/share
+  * postinst, prerm: handle /usr/doc/cgoban compatibility link.
+  * Made rules file sensitive to DEB_BUILD_OPTIONS.
+  * Added Build-Depends.  (closes: bug#70225).
+  * Set Standards-Version to 3.2.1.
+  * Included sample game in /usr/share/doc/cgoban/examples.
+    Closes: bug#63860, reported by Ken Harris.
+
+ -- Richard Braakman <dark@xs4all.nl>  Mon, 29 Jan 2001 15:30:48 +0200
+
+cgoban (1.9.8-1) unstable; urgency=medium
+  
+  * New upstream source.  Changes:
+    - Now when your time is low, your clock will blink REALLY BRIGHTLY to
+      warn you. This is thanks to Tomas Boman. By default it blinks when
+      you have 30 seconds left. There is also a setting in your
+      preferences where you can change the blinking time level.
+    - When you see somebody playing in a game in the player list, there
+      is now a button that you can click on to start observing their
+      game. This is thanks to Jean-Louis Martineau.
+    - The cgoban game window will now resize correctly under the
+      Enlightenment window manager. Before it was almost impossible to
+      get a decent size and/or shape to your game windows under this
+      window manager.
+
+ -- Richard Braakman <dark@xs4all.nl>  Mon, 20 Sep 1999 22:00:41 +0200
+  
+cgoban (1.9.7-2) unstable; urgency=medium
+  
+  * Previous version was accidentally packaged as debian-native; correcting.
+  
+ -- Richard Braakman <dark@xs4all.nl>  Sat, 21 Aug 1999 02:05:28 +0200
+  
+cgoban (1.9.7-1) unstable; urgency=medium
+  
+  * New upstream source, bugfixes.
+  
+ -- Richard Braakman <dark@xs4all.nl>  Thu, 29 Jul 1999 01:23:24 +0200
+  
+cgoban (1.9.5-1) unstable; urgency=medium
+  
+  * New upstream source, bugfixes.
+  
+ -- Richard Braakman <dark@xs4all.nl>  Tue, 11 May 1999 01:30:34 +0200
+  
+cgoban (1.9.3-1) unstable; urgency=low
+  
+  * New upstream source.
+  * Upstream changes:
+    - You can now sort the games list, thank to Jean-Francois Menon.
+    - A bug in compiling with multi-threaded-ready libraries has been fixed.
+  
+ -- Richard Braakman <dark@xs4all.nl>  Tue,  2 Mar 1999 13:01:41 +0100
+  
+cgoban (1.9.2-6) frozen unstable; urgency=low
+
+  * IGS moved!  Change default config from igs.nuri.net to igs.joyjoy.net.
+    This fixes bug#32896 reported by Dave Caswell.
+  * Install README.igs to explain this situation to people who have the
+    old config.
+  * Uploading to frozen, because #32896 will prevent normal operation in
+    the usual case, and in a rather confusing manner at that.
+    (Brian, feel free to install it only in unstable if you disagree.)
+
+ -- Richard Braakman <dark@xs4all.nl>  Fri,  5 Feb 1999 11:41:05 +0100
+  
+cgoban (1.9.2-5) unstable; urgency=low
+
+  * Corrected menu entry: section Games/Board rather than Apps/Games/Board
+
+ -- Richard Braakman <dark@xs4all.nl>  Thu, 20 Aug 1998 13:30:43 +0200
+
+cgoban (1.9.2-4) unstable; urgency=low
+
+  * Corrected FSF address in copyright file.
+  * Install files with -p to preserve timestamps.
+
+ -- Richard Braakman <dark@xs4all.nl>  Tue, 10 Feb 1998 11:43:20 +0100
+
+cgoban (1.9.2-3) unstable; urgency=low
+
+  * Improved wording in copyright file.
+  * Upgraded to standards version 2.4.0.0 (no changes).
+
+ -- Richard Braakman <dark@xs4all.nl>  Thu,  5 Feb 1998 00:47:53 +0100
+
+cgoban (1.9.2-2) unstable; urgency=low
+
+  * New manpage for grab_cgoban.
+  * Suggest imagemagick | netpbm because grab_cgoban needs an image converter.
+  * Install grab_cgoban with underline, not hyphen.  (Oops)
+
+ -- Richard Braakman <dark@xs4all.nl>  Sat,  6 Dec 1997 18:46:57 +0100
+
+cgoban (1.9.2-1) unstable; urgency=low
+
+  * New upstream source.  (Bugfix release)
+
+ -- Richard Braakman <dark@xs4all.nl>  Fri, 28 Nov 1997 00:47:59 +0100
+
+cgoban (1.9.1-2) unstable; urgency=low
+
+  * Moved update-menus call from prerm to postrm.
+
+ -- Richard Braakman <dark@xs4all.nl>  Sun,  9 Nov 1997 11:58:13 +0100
+
+cgoban (1.9.1-1) unstable; urgency=low
+
+  * First Debian release.
+  * Patched Makefile.in to allow -fomit-frame-pointer to be overridden
+    without also overriding the -I flags.
+
+ -- Richard Braakman <dark@xs4all.nl>  Fri,  7 Nov 1997 02:51:34 +0100

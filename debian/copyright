@@ -1,0 +1,25 @@
+This is the Debian GNU/Linux prepackaged version of CGoban. It was
+made by Richard Braakman <dark@xs4all.nl>, and is now maintained by
+Martin A. Godisch <godisch@debian.org>. The CGoban source package
+was obtained from:
+
+  http://prdownloads.sourceforge.net/cgoban1/
+
+CGoban is Copyright (C) 1995-2000 William Shubert <wms@igoweb.org>.
+
+CGoban is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2, or (at your option)
+any later version.
+
+CGoban is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+with your Debian GNU/Linux system as /usr/share/common-licenses/GPL,
+or with the CGoban source package as the file COPYING.
+
+If not, write to the Free Software Foundation, Inc., 51 Franklin St,
+Fifth Floor, Boston, MA 02110-1301, USA.

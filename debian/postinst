@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = configure ] && [ -x "$(which update-desktop-database 2> /dev/null)" ]; then
+	update-desktop-database -q
+fi
+
+exit 0

@@ -1,0 +1,21 @@
+Index: cgoban-1.9.14/src/goban.c
+===================================================================
+--- cgoban-1.9.14.orig/src/goban.c	2012-05-03 22:12:43.000000000 +0200
++++ cgoban-1.9.14/src/goban.c	2012-05-03 22:57:40.000000000 +0200
+@@ -256,6 +256,7 @@
+   butWin_destroy(g->win);
+ }
+ 
++static int minss(int x, int y) { return x<y ? x:y; }
+ 
+ static ButOut  resize(ButWin *win)  {
+   Goban  *g = butWin_packet(win);
+@@ -277,7 +278,7 @@
+   winH = butWin_h(win);
+   fontH = cg->fontH;
+   butW = fontH * 10 + bw*4;
+-  boardW = winW - butW - fontH*3 - bw*2;
++  boardW = minss(winW - butW - fontH*3 - bw*2, winH - fontH*11 - bw*4);
+   clpEntry_setDouble(g->bProp, (double)winH / (double)butWin_getMinH(win));
+   clpEntry_setDouble(g->bPropW, (double)winW / (double)butWin_getMinW(win)/2.0);
+ 

@@ -1,0 +1,48 @@
+--- cgoban-1.9.14.orig/configure.in
++++ cgoban-1.9.14/configure.in
+@@ -189,10 +189,10 @@
+ fi
+ WMS_CHECK_H_ERRNO
+ WMS_CHECK_SOCKETS
+-if test "$cross_compiling" = "yes" ; then
++AC_CHECK_SIZEOF(short)
++if test "x$ac_cv_sizeof_short" '=' x0 ; then
+   echo "********* IMPORTANT *************************************************"
+-  echo "*** It looks like either you are cross compiling, or configure cannot"
+-  echo "***   figure out how to run your C compiler."
++  echo "*** configure cannot figure out how to run your C compiler."
+   echo "*** If you are cross compiling, then configure cannot detect the "
+   echo "***   size of various types and the endian style of your machine.  "
+   echo "***   You will have to edit the file obj-${SYSTEM_TYPE}/configure.h "
+@@ -201,26 +201,12 @@
+   echo "***   for instructions on how to tell ./configure how to run your"
+   echo "***   C compiler."
+   echo "*********************************************************************"
+-else
+-  AC_CHECK_SIZEOF(short)
+-  if test "x$ac_cv_sizeof_short" '=' x0 ; then
+-    echo "********* IMPORTANT *************************************************"
+-    echo "*** configure cannot figure out how to run your C compiler."
+-    echo "*** If you are cross compiling, then configure cannot detect the "
+-    echo "***   size of various types and the endian style of your machine.  "
+-    echo "***   You will have to edit the file obj-${SYSTEM_TYPE}/configure.h "
+-    echo "***   by hand."
+-    echo "*** If you are NOT cross compiling, then please see the README file"
+-    echo "***   for instructions on how to tell ./configure how to run your"
+-    echo "***   C compiler."
+-    echo "*********************************************************************"
+-    exit 1
+-  fi
+-  AC_CHECK_SIZEOF(int)
+-  AC_CHECK_SIZEOF(long)
+-  AC_CHECK_SIZEOF(long long)
+-  AC_C_BIGENDIAN
++  exit 1
+ fi
++AC_CHECK_SIZEOF(int)
++AC_CHECK_SIZEOF(long)
++AC_CHECK_SIZEOF(long long)
++AC_C_BIGENDIAN
+ AC_CHECK_FUNCS(strerror getdtablesize memmove strcasecmp)
+ AC_RETSIGTYPE
+ AC_PATH_XTRA

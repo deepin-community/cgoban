@@ -1,0 +1,1 @@
+application/x-go-sgf; cgoban -edit %s; edit=cgoban -edit %s; test=test -n "$DISPLAY"; priority=5

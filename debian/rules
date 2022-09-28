@@ -1,0 +1,76 @@
+#!/usr/bin/make -f
+
+testdir  = test -f src/goBoard.c && test -f debian/rules
+testroot = test x`whoami` = xroot
+
+# FOR AUTOCONF 2.52 AND NEWER ONLY
+ifeq ($(DEB_BUILD_GNU_TYPE), $(DEB_HOST_GNU_TYPE))
+	CONFFLAGS += --build $(DEB_HOST_GNU_TYPE)
+else
+	CONFFLAGS += --build $(DEB_BUILD_GNU_TYPE) --host $(DEB_HOST_GNU_TYPE)
+endif
+
+CPPFLAGS = $(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS   = $(shell dpkg-buildflags --get CFLAGS) -Wno-error=format-security
+LDFLAGS  = $(shell dpkg-buildflags --get LDFLAGS)
+export CPPFLAGS
+export CFLAGS
+export LDFLAGS
+
+clean:
+	$(testdir)
+	rm -f  build-stamp
+	[ ! -f Makefile ] || $(MAKE) distclean
+	rm -f  debian/files debian/substvars
+	rm -fr debian/cgoban
+
+build: build-arch build-indep
+
+build-arch: build-stamp
+
+build-indep: build-stamp
+
+build-stamp:
+	$(testdir)
+	touch -r aclocal.m4 configure configure.h.in `find . -name Makefile.in`
+	# workaround for ia64 and sparc
+	touch aclocal.m4 && sleep 1 && touch configure configure.h.in `find . -name Makefile.in`
+	./configure $(CONFFLAGS) --prefix=/usr --bindir=/usr/games --mandir=/usr/share/man
+	$(MAKE)
+	touch $@
+
+binary: binary-arch binary-indep
+
+binary-arch: build
+	$(testdir)
+	$(testroot)
+	rm -rf debian/cgoban
+
+	$(MAKE) install DESTDIR=${CURDIR}/debian/cgoban
+ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
+	strip -R .comment -R .note debian/cgoban/usr/games/cgoban
+endif
+	install -d -p -m 0755 debian/cgoban/usr/share/doc/cgoban/examples
+	install -D -p -m 0644 ChangeLog debian/cgoban/usr/share/doc/cgoban/changelog
+	install -D -p -m 0644 debian/changelog debian/cgoban/usr/share/doc/cgoban/changelog.Debian
+	install    -p -m 0644 README TODO debian/copyright debian/README.Debian debian/cgoban/usr/share/doc/cgoban
+	install    -p -m 0644 seigen-minoru.sgf debian/cgoban/usr/share/doc/cgoban/examples
+	install -D -p -m 0644 debian/mime debian/cgoban/usr/lib/mime/packages/cgoban
+	install -D -p -m 0644 cgoban_icon.png debian/cgoban/usr/share/pixmaps/cgoban_icon.png
+	install -D -p -m 0644 debian/desktop debian/cgoban/usr/share/applications/cgoban.desktop
+	install -D -p -m 0644 debian/cgoban_32x32.xpm debian/cgoban/usr/share/pixmaps/cgoban_32x32.xpm
+
+	gzip -9n debian/cgoban/usr/share/man/man6/*.6 debian/cgoban/usr/share/doc/cgoban/changelog*
+
+	install -d -p -m 0755 debian/cgoban/DEBIAN
+	install    -p -m 0755 debian/postinst debian/postrm debian/cgoban/DEBIAN
+	cd debian/cgoban && find usr -type f -print0 | xargs -0 md5sum > DEBIAN/md5sums
+
+	dpkg-shlibdeps debian/cgoban/usr/games/cgoban
+	dpkg-gencontrol -pcgoban -Pdebian/cgoban
+	chmod -R u+w,go=u-w debian/cgoban
+	dpkg --build debian/cgoban ..
+
+binary-indep:
+
+.PHONY: clean build build-arch build-indep binary binary-arch binary-indep
